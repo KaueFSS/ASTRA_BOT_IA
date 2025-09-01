@@ -4,7 +4,6 @@ import asyncio
 import re
 import sqlite3
 import os
-import io
 from PIL import Image
 from discord import Embed, Activity, ActivityType, File
 import google.generativeai as genai
