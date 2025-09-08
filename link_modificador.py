@@ -3,8 +3,8 @@ import re
 
 # --- CONFIGURAÇÕES ---
 LINK_FIXES_MAP = {
-    "instagram.com": "ddinstagram.com",
-    "tiktok.com": "vxtiktok.com",      # <-- ALTERADO AQUI!
+    "instagram.com": "instagramez.com", # <-- ALTERADO AQUI!
+    "tiktok.com": "vxtiktok.com",
     "x.com": "fixupx.com",
     "twitter.com": "fixupx.com",
 }
