@@ -267,7 +267,7 @@ Criador: Kaue Fernandes (KyraString)
 
                 content_clean = re.sub(r'<@!?(\d+)>', '', message.content).strip()
                 if is_name_call:
-                    content_clean = re.sub(f"^{re.escape(self.Nome)}[\\s,]", "", content_clean, 1, re.IGNORECASE).strip()
+                    content_clean = re.sub(f"^{re.escape(self.Nome)}[\\s,]", "", content_clean, count=1, flags=re.IGNORECASE).strip()
 
                 target_image_attachment = None
                 if message.attachments:
