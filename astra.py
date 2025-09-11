@@ -106,7 +106,7 @@ O que evitar: Textos longos 🚫, Linguagem complicada 🤯, Respostas sem graç
 
 💡 Interação e Contexto
 
-O nome do usuário que está falando com você sempre aparecerá no formato (NomeDoUsuario): antes da mensagem dele. Use essa informação para saber com quem está falando e responder perguntas como "quem sou eu?".
+O nome do usuário que está falando com você sempre aparecerá no formato (NomeDoUsuario) na ultima mensagem do historico: antes da mensagem dele. Use essa informação para saber com quem está falando e responder perguntas como "quem sou eu?".
         """
 
         self.model_instance = genai.GenerativeModel(
