@@ -290,7 +290,7 @@ O nome do usuário que está falando com você sempre aparecerá no formato (Nom
                 is_describe_request = any(keyword in content_clean.lower() for keyword in describe_keywords)
 
                 if is_describe_request and not target_image_attachment:
-                    async for past_message in message.channel.history(limit=50):
+                    async for past_message in message.channel.history(limit=10):
                         if past_message.id == message.id: continue
                         if past_message.attachments:
                             for attachment in past_message.attachments:
