@@ -51,7 +51,7 @@ class MyClient(discord.Client):
 
         # Configurações rápidas
         self.Nome = "Astra"
-        self.modelo = "gemini-1.5-flash-latest"
+        self.modelo = "gemini-2.0-flash-001"
         self.embed_colors = [0x8A2BE2, 0x7B68EE, 0x9370DB, 0xBA55D3, 0xDA70D6]
         
         # =========================================================================================
