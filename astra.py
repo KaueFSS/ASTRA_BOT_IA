@@ -14,7 +14,7 @@ from datetime import datetime, timedelta
 from link_modificador import link_m
 from chamada import chamada
 
-# --- Ferramentas para o Gemini ---
+# --- Ferramentas para o Gemini ----
 def find_on_google(query: str) -> str:
     """
     Busca uma informação no Google.
