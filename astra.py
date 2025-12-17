@@ -216,7 +216,7 @@ O nome do usuário que está falando com você sempre aparecerá no formato (Nom
     async def change_activity(self):
         await self.wait_until_ready()
         activities = [
-            Activity(type=ActivityType.watching, name="⚫・Server Hideout"),
+            Activity(type=ActivityType.watching, name="⚫・Server Hideout")
         ]
         while not self.is_closed():
             await asyncio.sleep(3600)
