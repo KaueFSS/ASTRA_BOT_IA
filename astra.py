@@ -219,7 +219,7 @@ O nome do usuário que está falando com você sempre aparecerá no formato (Nom
             Activity(type=ActivityType.watching, name="⚫・Server Hideout")
         ]
         while not self.is_closed():
-            await asyncio.sleep(3600)
+            await asyncio.sleep(10)
             chosen_activity = random.choice(activities)
             await self.change_presence(activity=chosen_activity, status=discord.Status.online)
             
@@ -230,9 +230,10 @@ O nome do usuário que está falando com você sempre aparecerá no formato (Nom
     ─────────────────────────────
     🌏 BOT: {client.user.name} 
     🟢 Online
-
+    
      Created by: Kaue Fernandes
     ─────────────────────────────
+
     """)
         await self.restore_emojis_messages()
         self.loop.create_task(self.change_activity())
