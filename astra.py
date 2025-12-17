@@ -216,9 +216,7 @@ O nome do usuário que está falando com você sempre aparecerá no formato (Nom
     async def change_activity(self):
         await self.wait_until_ready()
         activities = [
-            Activity(type=ActivityType.watching, name="o universo se expandir ✨"),
-            Activity(type=ActivityType.listening, name="as estrelas cantarem 🎶"),
-            Activity(type=ActivityType.playing, name="com a realidade 🎮")
+            Activity(type=ActivityType.watching, name="⚫・Server Hideout"),
         ]
         while not self.is_closed():
             await asyncio.sleep(3600)
@@ -227,7 +225,15 @@ O nome do usuário que está falando com você sempre aparecerá no formato (Nom
             
 
     async def on_ready(self):
-        print(f'🌌 Astra 4.0 está online como {self.user}!')
+        os.system('cls' if os.name == 'nt' else 'clear')
+        print(f"""
+    ─────────────────────────────
+    🌏 BOT: {client.user.name} 
+    🟢 Online
+
+     Created by: Kaue Fernandes
+    ─────────────────────────────
+    """)
         await self.restore_emojis_messages()
         self.loop.create_task(self.change_activity())
 
