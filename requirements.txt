@@ -1,4 +1,4 @@
 discord.py
-requests
 google-generativeai
 Pillow
+python-dotenv

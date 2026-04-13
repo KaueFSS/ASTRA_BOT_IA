@@ -1,9 +1,8 @@
 import discord
 import re
 
-# --- CONFIGURAÇÕES ---
 LINK_FIXES_MAP = {
-    "instagram.com": "kkinstagram.com", 
+    "instagram.com": "kkinstagram.com",
     "tiktok.com": "vxtiktok.com",
     "x.com": "fixupx.com",
     "twitter.com": "fixupx.com",
@@ -21,7 +20,7 @@ URL_REGEX = re.compile(
     re.IGNORECASE
 )
 
-# --- FUNÇÃO PRINCIPAL ---
+
 async def link_m(client, message):
     if message.author.bot:
         return
@@ -41,44 +40,37 @@ async def link_m(client, message):
     if not fixed_links:
         return
 
-    # --- LÓGICA DO NINJA CAMUFLADO (WEBHOOK) ---
     try:
-        # 1. Procura por um webhook que o bot possa usar
         target_webhook = None
         webhooks = await message.channel.webhooks()
         for wh in webhooks:
-            # Reutiliza um webhook criado anteriormente por ele
             if wh.name == "Corretor de Links Ninja":
                 target_webhook = wh
                 break
 
-        # 2. Se não encontrar, cria um novo (só na primeira vez)
         if not target_webhook:
             target_webhook = await message.channel.create_webhook(
                 name="Corretor de Links Ninja",
                 reason="Para correção automática e transparente de links"
             )
 
-        # 3. Junta os links e envia usando o disfarce
         links_text = "\n".join(fixed_links)
         await target_webhook.send(
             content=links_text,
             username=message.author.display_name,
-            avatar_url=message.author.display_avatar.url # Pega o avatar do usuário
+            avatar_url=message.author.display_avatar.url
         )
 
-        # 4. Apaga a mensagem original
         await message.delete()
 
     except discord.Forbidden:
-        # Se o bot não tiver permissão, avisa no console e no chat
-        print(f"ERRO: O bot não tem permissão de 'Gerenciar Webhooks' ou 'Gerenciar Mensagens' no canal {message.channel.name}.")
+        print(f"ERRO: Permissões insuficientes no canal {message.channel.name}.")
         try:
             await message.channel.send(
-                f"⚠️ **Atenção!** Eu preciso das permissões de `Gerenciar Mensagens` e `Gerenciar Webhooks` para funcionar.",
+                "⚠️ **Atenção!** Eu preciso das permissões de `Gerenciar Mensagens` e `Gerenciar Webhooks` para funcionar.",
                 delete_after=20
             )
         except discord.Forbidden:
-            pass # Não consegue nem enviar a mensagem de erro
+            pass
     except Exception as e:
-        print(f"Ocorreu um erro inesperado: {e}")
+        print(f"Erro inesperado: {e}")
